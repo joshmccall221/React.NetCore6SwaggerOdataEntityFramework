@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using React.NetCore6SwaggerOdataEntityFramework.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ReactNetCore6SwaggerOdataEntityFrameworkContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ReactNetCore6SwaggerOdataEntityFrameworkContext") ?? throw new InvalidOperationException("Connection string 'ReactNetCore6SwaggerOdataEntityFrameworkContext' not found.")));
 
 // Add services to the container.
 
