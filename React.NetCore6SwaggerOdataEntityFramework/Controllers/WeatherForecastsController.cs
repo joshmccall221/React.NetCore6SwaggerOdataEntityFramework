@@ -10,18 +10,18 @@ using React.NetCore6SwaggerOdataEntityFramework.Data;
 
 namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastsController : ControllerBase
     {
         private readonly ReactNetCore6SwaggerOdataEntityFrameworkContext _context;
 
-        public WeatherForecastController(ReactNetCore6SwaggerOdataEntityFrameworkContext context)
+        public WeatherForecastsController(ReactNetCore6SwaggerOdataEntityFrameworkContext context)
         {
             _context = context;
         }
 
-        // GET: api/WeatherForecast
+        // GET: api/WeatherForecasts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WeatherForecast>>> GetWeatherForecast()
         {
@@ -32,7 +32,7 @@ namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
             return await _context.WeatherForecast.ToListAsync();
         }
 
-        // GET: api/WeatherForecast/5
+        // GET: api/WeatherForecasts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<WeatherForecast>> GetWeatherForecast(Guid id)
         {
@@ -50,7 +50,7 @@ namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
             return weatherForecast;
         }
 
-        // PUT: api/WeatherForecast/5
+        // PUT: api/WeatherForecasts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWeatherForecast(Guid id, WeatherForecast weatherForecast)
@@ -81,7 +81,7 @@ namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
             return NoContent();
         }
 
-        // POST: api/WeatherForecast
+        // POST: api/WeatherForecasts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<WeatherForecast>> PostWeatherForecast(WeatherForecast weatherForecast)
@@ -96,7 +96,7 @@ namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
             return CreatedAtAction("GetWeatherForecast", new { id = weatherForecast.Id }, weatherForecast);
         }
 
-        // DELETE: api/WeatherForecast/5
+        // DELETE: api/WeatherForecasts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWeatherForecast(Guid id)
         {

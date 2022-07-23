@@ -12,7 +12,7 @@ using React.NetCore6SwaggerOdataEntityFramework.Data;
 namespace React.NetCore6SwaggerOdataEntityFramework.Migrations
 {
     [DbContext(typeof(ReactNetCore6SwaggerOdataEntityFrameworkContext))]
-    [Migration("20220722220134_init")]
+    [Migration("20220723041253_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
