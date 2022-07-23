@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using Microsoft.EntityFrameworkCore;
 using React.NetCore6SwaggerOdataEntityFramework;
 using React.NetCore6SwaggerOdataEntityFramework.Data;
@@ -23,7 +24,8 @@ namespace React.NetCore6SwaggerOdataEntityFramework.Controllers
 
         // GET: api/WeatherForecasts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<WeatherForecast>>> GetWeatherForecast()
+        [EnableQuery]
+        public async Task<ActionResult<IEnumerable<WeatherForecast>>> Get()
         {
           if (_context.WeatherForecast == null)
           {
