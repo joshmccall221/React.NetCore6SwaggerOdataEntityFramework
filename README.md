@@ -5,6 +5,35 @@
 
 [boxstarter](https://gist.github.com/joshmccall221/26393292659b8db8a6de19739fca1b27)
 
+
+``` create.ps1
+$project = 'UI'
+$testproject = 'Test' + $project
+
+$project
+$testproject
+
+
+dotnet new webapi --output $project
+dotnet new xunit --output $testproject
+
+dotnet new sln --name BlazorUI
+dotnet sln add $project
+dotnet sln add $testproject
+
+dotnet add $project package Swashbuckle.AspNetCore
+dotnet add $project package Microsoft.AspNetCore.OData 
+
+dotnet add $testproject package bunit 
+dotnet add $testproject package comparenetobjects 
+dotnet add $testproject package deepcloner 
+dotnet add $testproject package fluentassertions 
+dotnet add $testproject package moq 
+dotnet add $testproject package tynamix.objectfiller
+start .
+
+```
+
 ```
 Set-ExecutionPolicy RemoteSigned
 . { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
